@@ -237,6 +237,20 @@
     show(rows[0]);
   }
 
+  /* ---- lightbox do feed (clicar abre a imagem) ---- */
+  const lb=document.getElementById('lightbox');
+  if(lb){
+    const lbImg=lb.querySelector('img');
+    const open=(src)=>{lbImg.src=src;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+    const close=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+    document.querySelectorAll('.feed-item').forEach(item=>{
+      const img=item.querySelector('img'); if(!img)return;
+      item.addEventListener('click',e=>{e.preventDefault();open(img.currentSrc||img.src);});
+    });
+    lb.addEventListener('click',close);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  }
+
   /* ---- feed shuffle ---- */
   const fg=document.querySelector('[data-shuffle]');
   if(fg){const items=[...fg.children];for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));fg.appendChild(items[j]);items.splice(j,1);}items.forEach(it=>fg.appendChild(it));}
