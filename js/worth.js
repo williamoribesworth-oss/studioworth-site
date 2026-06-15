@@ -79,6 +79,28 @@
     });
   }
 
+  // ---- intro: carrossel 3D rotatório automático
+  const rota=document.querySelector('[data-rota]');
+  if(rota){
+    const cards=[...rota.querySelectorAll('.rota-card')];
+    const N=cards.length;
+    let active=0;
+    const render=()=>{
+      cards.forEach((c,i)=>{
+        let o=i-active;
+        if(o>N/2)o-=N; if(o<-N/2)o+=N;
+        const ao=Math.abs(o);
+        c.style.transform=`translate(-50%,-50%) translateX(${o*56}%) translateZ(${-ao*170}px) rotateY(${o*-26}deg) scale(${o===0?1:.84})`;
+        c.style.opacity = ao>2 ? 0 : (o===0?1:.5);
+        c.style.zIndex = 100-ao;
+      });
+    };
+    render();
+    let timer=setInterval(()=>{active=(active+1)%N;render();},2600);
+    rota.addEventListener('mouseenter',()=>clearInterval(timer));
+    rota.addEventListener('mouseleave',()=>{timer=setInterval(()=>{active=(active+1)%N;render();},2600);});
+  }
+
   // ---- feed shuffle
   const fg=document.querySelector('[data-shuffle]');
   if(fg){
