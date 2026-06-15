@@ -16,6 +16,10 @@
     "01 — Portfólio":"01 — Portfolio",
     "Nossos trabalhos":"Our work",
     "Ver case":"View case",
+    "Trabalhe com a gente":"Work with us",
+    "Identidade · Embalagens":"Identity · Packaging",
+    "Identidade · Social":"Identity · Social",
+    "Identidade · Ilustração":"Identity · Illustration",
     // philosophy
     "02 — Filosofia":"02 — Philosophy",
     "A percepção cria valor — e a percepção pode ser projetada com intenção.":"Perception creates value — and perception can be designed with intention.",
