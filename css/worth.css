@@ -62,6 +62,13 @@ img{display:block;max-width:100%}
 .nav-cta{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   border:1px solid var(--line-d);border-radius:2px;padding:10px 18px;transition:.3s var(--ease);color:#fff}
 .nav-cta:hover{background:#fff;color:var(--ink);border-color:#fff}
+.langtog{justify-self:start;display:inline-flex;align-items:center;gap:7px;background:none;border:0;
+  cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mute-d);padding:6px 0}
+.langtog .lt{transition:.25s;color:var(--mute-d)}
+.langtog .lt.on{color:#fff}
+.nav.on-light .langtog .lt.on{color:var(--ink)}
+.langtog .lt-sep{opacity:.4}
+.langtog:hover .lt{color:#fff}
 
 /* ---------- BUTTONS / LINKS ---------- */
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);
