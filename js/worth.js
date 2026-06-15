@@ -103,8 +103,10 @@
         const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         const data=await res.json();
         if(data.success){
-          btn.textContent='Recebido ✓';
-          form.reset(); chips.forEach(c=>c.classList.remove('on')); syncChips();
+          form.reset();
+          form.style.display='none';
+          const ty=form.parentElement.querySelector('.thankyou');
+          if(ty) ty.hidden=false;
         }else{
           btn.textContent='Erro — tente de novo'; btn.disabled=false;
           setTimeout(()=>{btn.innerHTML=original;},2600);

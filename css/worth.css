@@ -247,6 +247,16 @@ section{position:relative}
 .chip:hover{border-color:#fff;color:#fff}
 .chip.on{background:#fff;color:var(--ink);border-color:#fff}
 
+/* ---------- serviços: código ™ + social + obrigado ---------- */
+.svc-row .scode{font-family:var(--mono);font-size:.32em;letter-spacing:.06em;
+  text-transform:none;color:var(--mute-d);font-style:normal;margin-left:.6em;vertical-align:middle;white-space:nowrap}
+.socials{display:flex;gap:12px}
+.socials a{width:42px;height:42px;border:1px solid var(--line-d);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--mute-d);transition:.3s var(--ease)}
+.socials a:hover{background:#fff;color:var(--ink);border-color:#fff;transform:translateY(-2px)}
+.socials svg{width:17px;height:17px;fill:currentColor}
+.thankyou .lead{max-width:34ch}
+
 /* ---------- FOOTER ---------- */
 .foot{background:var(--black);color:#fff;padding-block:clamp(54px,7vw,88px);
   border-top:1px solid var(--line-d)}
