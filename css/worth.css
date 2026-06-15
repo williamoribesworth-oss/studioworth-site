@@ -174,8 +174,8 @@ section{position:relative}
   cursor:pointer;border-radius:6px;overflow:hidden;background:#15151a;
   box-shadow:0 30px 70px rgba(0,0,0,.55)}
 .cover-card img{width:100%;height:100%;object-fit:cover;
-  filter:grayscale(1) contrast(1.04) brightness(.82);transition:.6s var(--ease)}
-.cover-card.active img{filter:grayscale(1) contrast(1.05) brightness(1)}
+  filter:saturate(.7) brightness(.7);transition:.6s var(--ease)}
+.cover-card.active img{filter:saturate(1.05) brightness(1)}
 .cover-card .cc-meta{position:absolute;inset:auto 0 0 0;padding:20px;
   background:linear-gradient(transparent,rgba(11,11,12,.9));
   opacity:0;transition:.5s var(--ease)}
@@ -300,6 +300,33 @@ section{position:relative}
 .foot .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
   margin-top:26px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--mute-d)}
+
+/* ---------- CASE PAGES (capas coloridas) ---------- */
+.case-hero{padding:clamp(120px,16vw,200px) 0 clamp(28px,4vw,48px);background:var(--black)}
+.case-hero .tlink{margin-bottom:28px}
+.case-title{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  font-size:clamp(46px,9vw,124px);letter-spacing:-.04em;line-height:.92}
+.case-sub{color:var(--mute-d);font-size:clamp(15px,1.7vw,20px);margin-top:12px}
+.case-meta{display:flex;gap:clamp(28px,5vw,66px);flex-wrap:wrap;margin-top:clamp(32px,5vw,52px);
+  border-top:1px solid var(--line-d);padding-top:26px}
+.case-meta .mono{display:block;margin-bottom:8px}
+.case-meta p{font-size:15px}
+.case-cover{height:clamp(300px,52vw,680px);overflow:hidden}
+.case-cover img{width:100%;height:100%;object-fit:cover}
+.case-body .case-text{max-width:64ch}
+.case-body .lead{font-size:clamp(18px,2.2vw,27px);color:#fff;line-height:1.5;margin-bottom:24px;font-weight:300}
+.case-body p{color:var(--mute-d);margin-bottom:18px;line-height:1.72}
+.cg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,20px)}
+.cg-grid img{width:100%;border-radius:6px;border:1px solid var(--line-d);display:block}
+.cg-grid .full{grid-column:1/-1}
+.case-book{padding-bottom:clamp(60px,8vw,110px)}
+.case-book img{width:100%;border-radius:8px;border:1px solid var(--line-d)}
+.case-next{border-top:1px solid var(--line-d)}
+.case-next .wrap{display:flex;justify-content:space-between;align-items:center;
+  padding-block:clamp(34px,5vw,60px);gap:20px;flex-wrap:wrap}
+.case-next h3{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  font-size:clamp(22px,3vw,40px);letter-spacing:-.02em}
+@media(max-width:600px){.cg-grid{grid-template-columns:1fr}}
 
 /* full bleed image + marquee "Designing Value" */
 .bleed{position:relative;overflow:hidden;height:clamp(320px,48vw,620px)}
