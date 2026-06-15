@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/worth.css?v=12">
+<link rel="stylesheet" href="css/worth.css?v=13">
 </head>
 <body>
 
@@ -39,39 +39,42 @@
   </div>
 </header>
 
-<!-- INTRO — frase central + slide bar 3D rotatório automático -->
+<!-- INTRO — frase central + campo de imagens flutuando -->
 <section class="sec intro-sec">
-  <div class="wrap">
+  <div class="field-imgs" aria-hidden="true">
+    <span class="fi" style="--x:3%;--y:16%;--s:1;--t:7s;--d:0s"><img src="img/cases/casali-cover.jpg" alt=""></span>
+    <span class="fi" style="--x:14%;--y:46%;--s:.78;--t:8.4s;--d:.6s"><img src="img/cases/casali-1.jpg" alt=""></span>
+    <span class="fi" style="--x:8%;--y:72%;--s:1.05;--t:6.6s;--d:.3s"><img src="img/cases/sunem-cover.jpg" alt=""></span>
+    <span class="fi" style="--x:24%;--y:22%;--s:.7;--t:9s;--d:1s"><img src="img/dia-14.png" alt=""></span>
+    <span class="fi" style="--x:27%;--y:80%;--s:.92;--t:7.6s;--d:.2s"><img src="img/cases/casali-2.jpg" alt=""></span>
+    <span class="fi" style="--x:42%;--y:9%;--s:.82;--t:8.6s;--d:.8s"><img src="img/cases/casali-3.jpg" alt=""></span>
+    <span class="fi" style="--x:54%;--y:84%;--s:.86;--t:7s;--d:.45s"><img src="img/dia-12.png" alt=""></span>
+    <span class="fi" style="--x:66%;--y:18%;--s:.72;--t:9.2s;--d:.5s"><img src="img/dia-16.png" alt=""></span>
+    <span class="fi" style="--x:73%;--y:74%;--s:1;--t:6.9s;--d:.15s"><img src="img/cases/agir-cover.jpg" alt=""></span>
+    <span class="fi" style="--x:80%;--y:38%;--s:.9;--t:8s;--d:.7s"><img src="img/cases/casali-4.jpg" alt=""></span>
+    <span class="fi" style="--x:90%;--y:60%;--s:1.08;--t:7.3s;--d:.35s"><img src="img/cases/casali-5.jpg" alt=""></span>
+    <span class="fi" style="--x:86%;--y:14%;--s:.74;--t:8.9s;--d:1.1s"><img src="img/dia-13.png" alt=""></span>
+    <span class="fi" style="--x:35%;--y:66%;--s:.66;--t:7.7s;--d:.95s"><img src="img/cases/casali-pattern.jpg" alt=""></span>
+  </div>
+  <div class="wrap intro-center">
     <div class="kicker" style="justify-content:center"><span class="mono">Creative Studio · Branding</span></div>
     <p class="intro-line rv">Estúdio criativo de branding.<br>Damos forma ao valor — onde a marca encontra a percepção e vira algo que as pessoas <em>reconhecem, lembram e desejam.</em></p>
   </div>
-  <div class="rota" data-rota>
-    <div class="rota-card"><img src="img/photo-2.png" alt=""></div>
-    <div class="rota-card"><img src="img/photo-5.png" alt=""></div>
-    <div class="rota-card"><img src="img/photo-9.png" alt=""></div>
-    <div class="rota-card"><img src="img/photo-6.png" alt=""></div>
-    <div class="rota-card"><img src="img/photo-11.png" alt=""></div>
-    <div class="rota-card"><img src="img/photo-8.png" alt=""></div>
-  </div>
 </section>
 
-<!-- NOSSOS TRABALHOS (coverflow 3D) -->
+<!-- NOSSOS TRABALHOS (grade, capas coloridas) -->
 <section class="sec" id="work">
   <div class="wrap">
     <div class="sec-head">
       <div><div class="kicker"><span class="mono">01 — Portfólio</span></div>
       <h2 class="am">Nossos trabalhos</h2></div>
+      <a class="tlink rv rv-2" href="index.html#contato">Trabalhe com a gente <span class="arr">→</span></a>
     </div>
-    <div class="cover" data-cover>
-      <button class="cnav cprev" aria-label="Anterior">←</button>
-      <button class="cnav cnext" aria-label="Próximo">→</button>
-      <div class="cover-stage">
-        <a class="cover-card" href="case-casali.html"><img src="img/cases/casali-cover.jpg" alt="Casa Li"><div class="cc-meta"><h3>Casa Li</h3><span class="tlink">Ver case <span class="arr">→</span></span></div></a>
-        <a class="cover-card" href="case-agir.html"><img src="img/cases/agir-cover.jpg" alt="Agir"><div class="cc-meta"><h3>Agir</h3><span class="tlink">Ver case <span class="arr">→</span></span></div></a>
-        <a class="cover-card" href="case-sunem.html"><img src="img/cases/sunem-cover.jpg" alt="Sunem"><div class="cc-meta"><h3>Sunem</h3><span class="tlink">Ver case <span class="arr">→</span></span></div></a>
-      </div>
+    <div class="work-grid">
+      <a class="wg-card rv" href="case-casali.html"><div class="wg-img"><img src="img/cases/casali-cover.jpg" alt="Casa Li"></div><div class="wg-meta"><h3>Casa Li</h3><span>Identidade · Embalagens</span></div></a>
+      <a class="wg-card rv rv-2" href="case-agir.html"><div class="wg-img"><img src="img/cases/agir-cover.jpg" alt="Agir"></div><div class="wg-meta"><h3>Agir</h3><span>Identidade · Social</span></div></a>
+      <a class="wg-card rv rv-3" href="case-sunem.html"><div class="wg-img"><img src="img/cases/sunem-cover.jpg" alt="Sunem"></div><div class="wg-meta"><h3>Sunem</h3><span>Identidade · Ilustração</span></div></a>
     </div>
-    <div class="cover-dots"></div>
   </div>
 </section>
 
