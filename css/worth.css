@@ -11,7 +11,7 @@
   --g-card:#141417; --g-card-hi:#202027;
   --mute:#6E6E73; --mute-d:#8A8A8F;
   --line:rgba(11,11,12,.12); --line-d:rgba(255,255,255,.13);
-  --container:1280px; --mx:clamp(20px,5vw,64px);
+  --container:1500px; --mx:clamp(16px,3.4vw,44px);
   --r:5px; --ease:cubic-bezier(.22,.61,.36,1);
   --sans:'Inter',system-ui,-apple-system,sans-serif;
   --body:'Inter',system-ui,-apple-system,sans-serif;
@@ -98,6 +98,7 @@ section{position:relative}
 /* ---------- HERO (vídeo em loop no fundo + slide bar) ---------- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
   justify-content:flex-end;color:#fff;overflow:hidden;background:var(--black);
+  isolation:isolate;
   padding:clamp(120px,15vw,180px) 0 clamp(28px,4vw,48px)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
@@ -131,20 +132,24 @@ section{position:relative}
 
 /* hero v2: degradê em movimento + símbolo girando (vazado) + lettering */
 .hero-grad{position:absolute;inset:0;z-index:0;overflow:hidden;
-  background:radial-gradient(75% 60% at 50% 38%,#1b1b21 0%,#121215 42%,var(--black) 78%)}
+  background:radial-gradient(78% 62% at 50% 38%,#222229 0%,#141418 44%,var(--black) 80%)}
 .hero-grad::after{content:"";position:absolute;inset:-25%;
-  background:radial-gradient(38% 38% at 30% 28%,rgba(150,152,165,.22),transparent 62%);
+  background:radial-gradient(40% 40% at 30% 28%,rgba(168,170,186,.34),transparent 62%);
   animation:lightsweep 17s ease-in-out infinite alternate;will-change:transform}
 .hero-grad::before{content:"";position:absolute;inset:-25%;
-  background:radial-gradient(34% 34% at 72% 70%,rgba(120,122,138,.16),transparent 60%);
+  background:radial-gradient(36% 36% at 72% 70%,rgba(132,134,152,.26),transparent 60%);
   animation:lightsweep2 22s ease-in-out infinite alternate;will-change:transform}
 @keyframes lightsweep{0%{transform:translate(-6%,-4%)}100%{transform:translate(34%,26%)}}
 @keyframes lightsweep2{0%{transform:translate(6%,8%)}100%{transform:translate(-28%,-18%)}}
-.hero-symbol{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;pointer-events:none}
-.hero-symbol img{width:clamp(170px,26vw,400px);opacity:.42;animation:heroSpin 26s linear infinite;
-  filter:drop-shadow(0 20px 60px rgba(0,0,0,.5))}
-@keyframes heroSpin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.hero-grad::after,.hero-grad::before,.hero-symbol img{animation:none}}
+/* grain leve sobre a luz */
+.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:170px}
+/* logo em vídeo (vidro) sobre os textos, centralizado, em loop */
+.hero-symbol{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.hero-logo{width:clamp(260px,38vw,640px);height:auto;mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(closest-side at 50% 50%,#000 52%,transparent 96%);
+          mask-image:radial-gradient(closest-side at 50% 50%,#000 52%,transparent 96%)}
+@media (prefers-reduced-motion:reduce){.hero-grad::after,.hero-grad::before{animation:none}}
 
 /* intro: frase central + slide bar 3D rotatório automático */
 .intro-sec{text-align:center;overflow:hidden;padding-bottom:clamp(40px,6vw,80px)}
@@ -302,6 +307,8 @@ section{position:relative}
   color:var(--mute-d);margin-bottom:18px}
 .foot a{color:var(--mute-d);display:block;padding:5px 0;transition:.2s;font-size:14px}
 .foot a:hover{color:#fff}
+.foot .brand{justify-self:start;display:inline-flex;align-items:center;gap:11px;color:#fff}
+.foot .brand img{height:22px;width:auto}
 .foot .big{font-family:var(--sans);font-weight:300;font-size:clamp(34px,7vw,84px);
   letter-spacing:-.035em;line-height:.94;margin-block:42px 0;text-transform:uppercase}
 .foot .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
