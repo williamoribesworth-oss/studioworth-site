@@ -87,8 +87,32 @@
     items.forEach(it=>fg.appendChild(it));
   }
 
-  // ---- chips + form
+  // ---- chips + form (Web3Forms)
   document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
-  const form=document.querySelector('form[data-demo]');
-  if(form){form.addEventListener('submit',(e)=>{e.preventDefault();const b=form.querySelector('button[type=submit]');if(b)b.textContent='Recebido';});}
+  const form=document.querySelector('form[data-web3]');
+  if(form){
+    const hidden=form.querySelector('input[name="Interesse"]');
+    const chips=[...form.querySelectorAll('.chip')];
+    const syncChips=()=>{ if(hidden) hidden.value=chips.filter(c=>c.classList.contains('on')).map(c=>c.textContent.trim()).join(', '); };
+    chips.forEach(c=>c.addEventListener('click',syncChips));
+    form.addEventListener('submit',async(e)=>{
+      e.preventDefault(); syncChips();
+      const btn=form.querySelector('button[type=submit]');
+      const original=btn.innerHTML; btn.disabled=true; btn.textContent='Enviando…';
+      try{
+        const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+        const data=await res.json();
+        if(data.success){
+          btn.textContent='Recebido ✓';
+          form.reset(); chips.forEach(c=>c.classList.remove('on')); syncChips();
+        }else{
+          btn.textContent='Erro — tente de novo'; btn.disabled=false;
+          setTimeout(()=>{btn.innerHTML=original;},2600);
+        }
+      }catch(err){
+        btn.textContent='Sem conexão — tente de novo'; btn.disabled=false;
+        setTimeout(()=>{btn.innerHTML=original;},2600);
+      }
+    });
+  }
 })();

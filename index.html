@@ -141,14 +141,19 @@
     <div class="sec-head"><div><div class="kicker"><span class="mono">05 — Vamos conversar</span></div>
       <h2 class="am">Conte qual é o próximo desafio</h2></div></div>
     <div class="grid gap g2" style="gap:clamp(34px,6vw,80px);align-items:start">
-      <form class="rv" data-demo>
+      <form class="rv" data-web3 action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="e13cf575-8f6e-4511-88b5-7070fd30344a">
+        <input type="hidden" name="subject" value="Novo pedido — site Worth">
+        <input type="hidden" name="from_name" value="Site Worth">
+        <input type="hidden" name="Interesse" value="">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field-row">
-          <div class="fl"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
-          <div class="fl"><label>Empresa</label><input type="text" placeholder="Marca / empresa"></div>
+          <div class="fl"><label>Nome</label><input type="text" name="Nome" placeholder="Seu nome" required></div>
+          <div class="fl"><label>Empresa</label><input type="text" name="Empresa" placeholder="Marca / empresa"></div>
         </div>
         <div class="field-row">
-          <div class="fl"><label>E-mail</label><input type="email" placeholder="voce@email.com" required></div>
-          <div class="fl"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000"></div>
+          <div class="fl"><label>E-mail</label><input type="email" name="email" placeholder="voce@email.com" required></div>
+          <div class="fl"><label>Telefone</label><input type="tel" name="Telefone" placeholder="(00) 00000-0000"></div>
         </div>
         <div class="fl"><label>Interesse</label>
           <div class="chips">
@@ -156,9 +161,9 @@
             <span class="chip">Direção de Arte</span><span class="chip">Design System</span><span class="chip">Social</span>
           </div>
         </div>
-        <div class="fl"><label>Sobre o projeto</label><textarea placeholder="Conte o que sua marca precisa..."></textarea></div>
+        <div class="fl"><label>Sobre o projeto</label><textarea name="Mensagem" placeholder="Conte o que sua marca precisa..." required></textarea></div>
         <button type="submit" class="btn btn-fill" style="width:100%;justify-content:center;margin-top:8px">Enviar pedido <span class="arr">→</span></button>
-        <p class="mono" style="margin-top:14px;text-align:center">Formulário de demonstração — conectar ao e-mail/CRM na publicação.</p>
+        <p class="mono" style="margin-top:14px;text-align:center">Respondemos em até 2 dias úteis.</p>
       </form>
       <div class="rv rv-2">
         <p class="statement" style="font-size:clamp(22px,2.8vw,36px);margin-bottom:34px;max-width:18ch">Marcas não acontecem. São projetadas.</p>
@@ -195,6 +200,6 @@
   </div>
 </footer>
 
-<script src="js/worth.js?v=6"></script>
+<script src="js/worth.js?v=7"></script>
 </body>
 </html>
