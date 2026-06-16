@@ -236,7 +236,13 @@
     let timer=setInterval(tick,2800);
     rows.forEach((row,i)=>{
       row.addEventListener('mouseenter',()=>{clearInterval(timer);idx=i;show(row);});
-      row.addEventListener('mouseleave',()=>{clearInterval(timer);timer=setInterval(tick,2800);});
+      row.addEventListener('mouseleave',()=>{if(!rows.some(r=>r.classList.contains('open'))){clearInterval(timer);timer=setInterval(tick,2800);}});
+      row.addEventListener('click',()=>{
+        const wasOpen=row.classList.contains('open');
+        rows.forEach(r=>r.classList.remove('open'));
+        if(!wasOpen)row.classList.add('open');
+        clearInterval(timer); idx=i; show(row);
+      });
     });
     show(rows[0]);
   }

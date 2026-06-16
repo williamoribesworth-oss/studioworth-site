@@ -265,7 +265,7 @@ section{position:relative}
 /* ---------- SERVICES (textos soltos · hover acende + imagem ao lado) ---------- */
 .svc-x{display:grid;grid-template-columns:1.45fr .8fr;gap:clamp(28px,5vw,72px);align-items:start}
 .svc-names{display:flex;flex-direction:column}
-.svc-row{display:grid;grid-template-columns:52px 1fr;gap:20px;align-items:baseline;
+.svc-row{display:grid;grid-template-columns:52px 1fr;gap:20px;align-items:baseline;cursor:pointer;
   padding:clamp(16px,2.1vw,28px) 0;border-top:1px solid var(--line-d);
   transition:padding .4s var(--ease)}
 .svc-row:last-child{border-bottom:1px solid var(--line-d)}
@@ -274,11 +274,11 @@ section{position:relative}
   font-size:clamp(24px,3.6vw,50px);letter-spacing:-.025em;line-height:1;color:#46464c;transition:color .4s var(--ease)}
 .svc-row .sdesc{display:block;color:var(--mute-d);font-size:13.5px;margin-top:10px;max-width:42ch;
   max-height:0;opacity:0;overflow:hidden;transition:.45s var(--ease)}
-/* só o item sob o cursor acende; os demais ficam em cinza escuro */
-.svc-names .svc-row:hover .sname{color:#f2f2f2}
-.svc-names .svc-row:hover{padding-left:14px}
-.svc-names .svc-row:hover .num{color:#f2f2f2}
-.svc-names .svc-row:hover .sdesc{max-height:80px;opacity:1;margin-top:12px}
+/* item sob o cursor OU aberto (clique) acende; os demais ficam em cinza escuro */
+.svc-names .svc-row:hover .sname,.svc-names .svc-row.open .sname{color:#f2f2f2}
+.svc-names .svc-row:hover,.svc-names .svc-row.open{padding-left:14px}
+.svc-names .svc-row:hover .num,.svc-names .svc-row.open .num{color:#f2f2f2}
+.svc-names .svc-row:hover .sdesc,.svc-names .svc-row.open .sdesc{max-height:160px;opacity:1;margin-top:12px}
 /* moldura que aparece ao lado */
 .svc-frame{position:sticky;top:96px;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;
   background:#15151a;border:1px solid var(--line-d)}
