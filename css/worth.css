@@ -97,7 +97,7 @@ section{position:relative}
 
 /* ---------- HERO (vídeo em loop no fundo + slide bar) ---------- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
-  justify-content:flex-end;color:#f2f2f2;overflow:hidden;background:var(--black);
+  justify-content:flex-end;color:#f2f2f2;overflow:hidden;background:#000;
   isolation:isolate;
   padding:clamp(120px,15vw,180px) 0 clamp(28px,4vw,48px)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -109,7 +109,7 @@ section{position:relative}
 .hero .toprow .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .hero-inner{position:relative;z-index:2;width:100%}
 /* hero v3 — vídeo no fundo + texto nas laterais (Value Is / Designed) */
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center 46%;z-index:0}
 .hero-flank{position:absolute;inset:0;z-index:2;display:grid;
   grid-template-columns:1fr clamp(520px,58vw,1080px) 1fr;align-items:center;pointer-events:none;margin:0}
 .hero-flank span{font-family:var(--sans);font-weight:400;text-transform:uppercase;
@@ -119,8 +119,8 @@ section{position:relative}
 .hero-flank .hf-r{grid-column:3;justify-self:start;text-align:left;padding-left:clamp(12px,2vw,32px);transform:translateX(22px)}
 @keyframes flankIn{to{opacity:1;transform:translateX(0)}}
 @media (max-width:760px){
-  /* símbolo inteiro (sem cortar laterais) — amplia o vídeo cortando só as bordas pretas */
-  .hero-bg{object-fit:contain;object-position:center 46%;transform:scale(1.7)}
+  /* vídeo sem fundo sobre preto puro — W inteiro, ampliado p/ presença no mobile */
+  .hero-bg{object-position:center 44%;transform:scale(1.5)}
   /* frase única "Value Is Designed" centralizada, abaixo do símbolo */
   .hero-flank{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-end;
     gap:.36em;padding:0 0 14vh}
