@@ -119,9 +119,11 @@ section{position:relative}
 .hero-flank .hf-r{grid-column:3;justify-self:start;text-align:left;padding-left:clamp(12px,2vw,32px);transform:translateX(22px)}
 @keyframes flankIn{to{opacity:1;transform:translateX(0)}}
 @media (max-width:760px){
+  /* símbolo inteiro (sem cortar laterais) — amplia o vídeo cortando só as bordas pretas */
+  .hero-bg{object-fit:contain;object-position:center 46%;transform:scale(1.7)}
   /* frase única "Value Is Designed" centralizada, abaixo do símbolo */
   .hero-flank{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-end;
-    gap:.36em;padding:0 0 16vh}
+    gap:.36em;padding:0 0 14vh}
   .hero-flank span{transform:none;animation:fadeUp .9s var(--ease) .3s forwards;
     grid-column:auto;justify-self:auto;text-align:center;padding:0}
   .hero-flank .hf-l,.hero-flank .hf-r{transform:none}
@@ -188,19 +190,19 @@ section{position:relative}
 @media (prefers-reduced-motion:reduce){.fi{animation:none}}
 /* mobile: boxes diagramados acima e abaixo do texto (sem invadir a leitura) */
 @media (max-width:680px){
-  .intro-sec{min-height:96vh}
-  .fi{width:calc(clamp(56px,16vw,88px)*var(--s,1))}
+  .intro-sec{min-height:auto;padding-block:clamp(120px,30vw,180px)}
+  .fi{width:calc(clamp(54px,15vw,82px)*var(--s,1))}
   .fi{display:none}
   .fi:nth-child(1),.fi:nth-child(4),.fi:nth-child(6),
   .fi:nth-child(8),.fi:nth-child(9),.fi:nth-child(11){display:block}
-  /* faixa de cima — acima do texto */
-  .fi:nth-child(1){left:5%!important;top:4%!important}
-  .fi:nth-child(6){left:40%!important;top:2%!important}
-  .fi:nth-child(4){left:70%!important;top:8%!important}
-  /* faixa de baixo */
-  .fi:nth-child(8){left:6%!important;top:82%!important}
-  .fi:nth-child(9){left:40%!important;top:88%!important}
-  .fi:nth-child(11){left:70%!important;top:80%!important}
+  /* faixa de cima — logo acima do texto */
+  .fi:nth-child(1){left:6%!important;top:9%!important}
+  .fi:nth-child(6){left:42%!important;top:4%!important}
+  .fi:nth-child(4){left:72%!important;top:11%!important}
+  /* faixa de baixo — logo abaixo do texto */
+  .fi:nth-child(8){left:8%!important;top:88%!important}
+  .fi:nth-child(9){left:44%!important;top:93%!important}
+  .fi:nth-child(11){left:70%!important;top:86%!important}
 }
 
 /* grade de trabalhos (estilo Valkiria, coloridas) */
