@@ -20,6 +20,13 @@
     "Identidade · Embalagens":"Identity · Packaging",
     "Identidade · Social":"Identity · Social",
     "Identidade · Ilustração":"Identity · Illustration",
+    "Confeitaria artesanal":"Artisanal confectionery",
+    "Energia em movimento":"Energy in motion",
+    "Embalagens":"Packaging","Banco de Imagens":"Image Bank",
+    "Tipografia":"Typography","Ilustração":"Illustration","Papelaria":"Stationery","Paleta":"Palette",
+    "Transformamos o afeto de uma cozinha caseira em uma marca reconhecível à primeira mordida.":"We turned the warmth of a home kitchen into a brand recognizable at first bite.",
+    "Uma identidade vibrante e elétrica, feita para mobilizar, reunir e colocar gente em ação.":"A vibrant, electric identity built to mobilize, gather and put people into action.",
+    "Uma marca orgânica que respira natureza, lentidão e cuidado — um convite ao descanso.":"An organic brand that breathes nature, slowness and care — an invitation to rest.",
     // philosophy
     "02 — Filosofia":"02 — Philosophy",
     "A percepção cria valor — e a percepção pode ser projetada com intenção.":"Perception creates value — and perception can be designed with intention.",
@@ -191,6 +198,31 @@
     render();let timer=setInterval(()=>{active=(active+1)%N;render();},2600);
     rota.addEventListener('mouseenter',()=>clearInterval(timer));
     rota.addEventListener('mouseleave',()=>{timer=setInterval(()=>{active=(active+1)%N;render();},2600);});
+  }
+
+  /* ---- stacking cards (Nossos trabalhos): profundidade ao empilhar ---- */
+  const stack=document.querySelector('[data-stack]');
+  if(stack && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    const cards=[...stack.querySelectorAll('.stk-card')];
+    let ticking=false;
+    const update=()=>{
+      ticking=false;
+      cards.forEach((card,i)=>{
+        const next=cards[i+1];
+        if(!next){card.style.transform='';return;}
+        const pin=parseFloat(getComputedStyle(card).top)||0;
+        const h=card.offsetHeight||1;
+        // quanto o próximo card já cobriu este (0 → 1)
+        const covered=Math.min(1,Math.max(0,(pin+h-next.getBoundingClientRect().top)/h));
+        const s=1-covered*0.05;
+        card.style.transform=`scale(${s}) translateY(${covered*-10}px)`;
+        card.style.opacity=1-covered*0.18;
+      });
+    };
+    const onScrollStack=()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}};
+    window.addEventListener('scroll',onScrollStack,{passive:true});
+    window.addEventListener('resize',onScrollStack);
+    update();
   }
 
   /* ---- coverflow 3D ---- */
