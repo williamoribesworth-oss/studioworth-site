@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/worth.css?v=16">
+<link rel="stylesheet" href="css/worth.css?v=17">
 </head>
 <body>
 
@@ -23,20 +23,15 @@
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-grad"></div>
+  <video class="hero-bg" autoplay muted loop playsinline>
+    <source src="video/hero-logo.mp4" type="video/mp4">
+  </video>
   <div class="hero-grain"></div>
-  <div class="hero-symbol">
-    <video class="hero-logo" autoplay muted loop playsinline>
-      <source src="video/hero-logo.mp4" type="video/mp4">
-    </video>
-  </div>
   <div class="toprow"><div class="wrap">
     <span class="mono">Worth © Creative Studio</span>
     <span class="mono">Series One — 2026.06</span>
   </div></div>
-  <div class="wrap hero-inner">
-    <h1 class="am">Construímos marcas que valem mais</h1>
-  </div>
+  <h1 class="hero-flank"><span class="hf-l">Value Is</span><span class="hf-r">Designed</span></h1>
 </header>
 
 <!-- INTRO — frase central + campo de imagens flutuando -->
@@ -63,7 +58,7 @@
 </section>
 
 <!-- NOSSOS TRABALHOS (grade, capas coloridas) -->
-<section class="sec" id="work">
+<section class="sec" id="work" data-cta="Ver projeto" data-cta-en="View project">
   <div class="wrap">
     <div class="sec-head">
       <div><div class="kicker"><span class="mono">01 — Portfólio</span></div>
@@ -136,7 +131,7 @@
 </section>
 
 <!-- FEED (light) -->
-<section class="sec light" id="feed">
+<section class="sec light" id="feed" data-cta="Expandir" data-cta-en="Expand">
   <div class="wrap">
     <div class="sec-head">
       <div><div class="kicker"><span class="mono">04 — Estúdio em movimento</span></div>
@@ -222,6 +217,8 @@
   </div>
 </section>
 
+<div class="cursor-cta" aria-hidden="true"><span class="cca-box">Ver projeto</span></div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lb-close" aria-label="Fechar">✕</button><img src="" alt=""></div>
 
@@ -241,6 +238,6 @@
   </div>
 </footer>
 
-<script src="js/worth.js?v=13"></script>
+<script src="js/worth.js?v=14"></script>
 </body>
 </html>

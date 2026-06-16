@@ -241,6 +241,19 @@
     show(rows[0]);
   }
 
+  /* ---- box de vidro seguindo o cursor (CTA por seção) ---- */
+  const cta=document.querySelector('.cursor-cta');
+  if(cta && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const box=cta.querySelector('.cca-box');
+    let mx=innerWidth/2,my=innerHeight/2,tx=mx,ty=my;
+    document.querySelectorAll('[data-cta]').forEach(sec=>{
+      sec.addEventListener('mouseenter',()=>{box.textContent=(lang==='en'&&sec.dataset.ctaEn)?sec.dataset.ctaEn:sec.dataset.cta;cta.classList.add('show');});
+      sec.addEventListener('mouseleave',()=>cta.classList.remove('show'));
+    });
+    window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+    (function loop(){tx+=(mx-tx)*.2;ty+=(my-ty)*.2;cta.style.transform=`translate(${tx}px,${ty}px)`;requestAnimationFrame(loop);})();
+  }
+
   /* ---- lightbox do feed (clicar abre a imagem) ---- */
   const lb=document.getElementById('lightbox');
   if(lb){
