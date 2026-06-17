@@ -368,9 +368,9 @@ section{position:relative}
 .feed-grid{columns:3;column-gap:clamp(12px,1.4vw,18px)}
 .feed-item{break-inside:avoid;margin-bottom:clamp(12px,1.4vw,18px);border-radius:var(--r);
   overflow:hidden;position:relative;background:#15151a;display:block;cursor:zoom-in}
-.feed-item img{width:100%;object-fit:cover;filter:grayscale(1) contrast(1.03) brightness(.9);
+.feed-item img,.feed-item video{width:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.03) brightness(.9);
   transition:filter .5s var(--ease),transform .6s var(--ease)}
-@media (hover:hover) and (pointer:fine){.feed-item:hover img{transform:scale(1.04);filter:none}}
+@media (hover:hover) and (pointer:fine){.feed-item:hover img,.feed-item:hover video{transform:scale(1.04);filter:none}}
 .feed-item.note{cursor:default}
 
 /* lightbox do feed */
