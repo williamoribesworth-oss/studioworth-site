@@ -512,3 +512,36 @@ section{position:relative}
   .svc{grid-template-columns:1fr;gap:8px}
   .svc .num,.svc .plus{display:none}
 }
+
+/* =========================================================
+   CASE PAGES — tema claro (fundo cinza bem fraquinho)
+   ========================================================= */
+body.case-light{background:#F4F4F5;color:var(--ink)}
+body.case-light ::selection{background:#dcdce0;color:var(--ink)}
+body.case-light .case-hero{background:transparent}
+body.case-light .case-sub{color:var(--mute)}
+body.case-light .case-meta{border-top-color:var(--line)}
+body.case-light .case-body .lead{color:var(--ink)}
+body.case-light .case-body p{color:var(--mute)}
+body.case-light .cg-grid img,
+body.case-light .case-book img,
+body.case-light .case-vid{border-color:var(--line)}
+body.case-light .case-next{border-top-color:var(--line)}
+body.case-light .btn-fill{background:var(--ink);color:var(--white)}
+body.case-light .btn-fill:hover{background:#000}
+/* nav sobre fundo claro (texto escuro até rolar) */
+body.case-light .nav{color:var(--ink)}
+body.case-light .nav .brand img{filter:brightness(0)}
+body.case-light .nav-cta{border-color:var(--line);color:var(--ink)}
+body.case-light .nav-cta:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+body.case-light .tlink{border-color:var(--line)}
+body.case-light .tlink:hover{color:var(--ink);border-color:var(--ink)}
+body.case-light .langtog,body.case-light .langtog .lt{color:var(--mute)}
+body.case-light .langtog .lt.on{color:var(--ink)}
+body.case-light .kicker::before{background:var(--mute)}
+/* nav.solid: volta ao escuro translúcido com conteúdo claro */
+body.case-light .nav.solid{color:#f2f2f2}
+body.case-light .nav.solid .brand img{filter:none}
+body.case-light .nav.solid .nav-cta{border-color:var(--line-d);color:#f2f2f2}
+body.case-light .nav.solid .nav-cta:hover{background:#f2f2f2;color:var(--ink);border-color:#f2f2f2}
+body.case-light .nav.solid .tlink{border-color:var(--line-d)}
