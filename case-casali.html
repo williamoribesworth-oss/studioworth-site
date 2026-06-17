@@ -8,8 +8,11 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('consent', 'default', { analytics_storage: 'denied' });
+  try { if (localStorage.getItem('worth-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
   gtag('config', 'G-2HPTV4CGE3');
 </script>
+<script src="js/consent.js?v=1" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Worth — Case Casa Li</title>
 <meta name="description" content="Case Casa Li — identidade visual, embalagens e banco de imagens por Worth.">
