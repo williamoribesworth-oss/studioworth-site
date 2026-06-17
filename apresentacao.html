@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worth — Apresentação do Estúdio</title>
+<meta name="description" content="Worth Creative Studio — apresentação institucional. Construímos marcas que valem mais.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   WORTH — Deck institucional (segue o design do site)
+   Mono: preto #161616 · cinza #EEEEF0 · branco #f2f2f2 · SEM azul
+   Inter (display fino) · Geist Mono (labels) · Instrument Serif (acentos)
+   ========================================================= */
+@font-face{font-family:'Instrument Serif';src:url('fonts/InstrumentSerif-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Instrument Serif';src:url('fonts/InstrumentSerif-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+
+:root{
+  --black:#161616; --ink:#161616;
+  --bg:#EEEEF0; --bg2:#F5F5F6; --paper:#FAFAFB; --white:#f2f2f2;
+  --g-card:#1b1b1f; --g-card-hi:#202027;
+  --mute:#6E6E73; --mute-d:#8A8A8F;
+  --line:rgba(22,22,22,.12); --line-d:rgba(255,255,255,.13);
+  --mx:clamp(28px,6vw,96px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'Geist Mono','SFMono-Regular',ui-monospace,monospace;
+  --serif:'Instrument Serif',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);background:#000;color:var(--white);
+  font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.55;
+  letter-spacing:-.005em;overflow:hidden}
+img{display:block;max-width:100%}
+::selection{background:#3a3a3e;color:#f2f2f2}
+
+/* ---------- DECK / SLIDES ---------- */
+.deck{height:100vh;width:100vw;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;
+  scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+.slide{position:relative;height:100vh;width:100vw;scroll-snap-align:start;scroll-snap-stop:always;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(64px,10vh,120px) var(--mx) clamp(80px,12vh,120px);
+  overflow:hidden;background:var(--black)}
+.slide.light{background:var(--bg);color:var(--ink)}
+.slide.flush{padding:0}
+
+/* shared atoms */
+.kicker{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+.kicker::before{content:"";width:26px;height:1px;background:var(--mute-d)}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);font-weight:400}
+.light .mono{color:var(--mute)}
+.lead{font-size:clamp(15px,1.5vw,19px);color:var(--mute-d);line-height:1.62;font-weight:400;max-width:60ch}
+.light .lead{color:var(--mute)}
+.serif{font-family:var(--serif);font-style:italic;letter-spacing:0}
+.disp{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  letter-spacing:-.03em;line-height:.96}
+
+/* reveal on active slide */
+.slide [data-rv]{opacity:0;transform:translateY(22px);transition:.9s var(--ease)}
+.slide.on [data-rv]{opacity:1;transform:none}
+.slide.on [data-rv]{transition-delay:calc(var(--d,0)*1s)}
+@media (prefers-reduced-motion:reduce){.slide [data-rv]{opacity:1;transform:none}}
+
+/* ---------- SLIDE 1 — CAPA ---------- */
+.cover{justify-content:flex-end;background:#000}
+.cover video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center 42%;z-index:0}
+.cover .grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:170px}
+.cover .toprow{position:absolute;top:clamp(36px,6vh,64px);left:var(--mx);right:var(--mx);z-index:3;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cover .flank{position:relative;z-index:2;text-align:center;margin-bottom:2vh}
+.cover .flank h1{font-size:clamp(34px,7vw,104px);letter-spacing:.02em;line-height:1}
+.cover .flank h1 .serif{text-transform:none;font-weight:400}
+.cover .sub{position:relative;z-index:2;text-align:center;margin-top:18px}
+
+/* brand lockup */
+.lockup{display:inline-flex;align-items:center;gap:11px;font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.lockup img{height:18px;width:auto}
+
+/* ---------- SLIDE — frase grande centralizada ---------- */
+.statement{font-family:var(--sans);font-weight:300;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(28px,4.6vw,68px);max-width:20ch}
+.statement .serif{font-weight:400;color:var(--mute-d)}
+.light .statement .serif{color:var(--mute)}
+
+/* ---------- SLIDE — quem somos ---------- */
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(34px,5vw,90px);align-items:center}
+@media(max-width:860px){.two{grid-template-columns:1fr;gap:34px}}
+.intro-line{font-family:var(--sans);font-weight:300;font-size:clamp(22px,2.8vw,40px);
+  letter-spacing:-.02em;line-height:1.3}
+.intro-line em,.intro-line .serif{font-style:italic;color:var(--mute-d);font-family:var(--serif)}
+.field{position:relative;height:min(56vh,520px)}
+.field .fi{position:absolute;border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.5);
+  animation:floatY var(--t,8s) ease-in-out infinite;animation-delay:var(--d,0s)}
+.field .fi img{width:100%;height:100%;object-fit:cover}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+/* ---------- SLIDE — pilares ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,40px);margin-top:clamp(40px,6vh,72px)}
+@media(max-width:860px){.pillars{grid-template-columns:1fr 1fr;gap:28px}}
+.pillar .picon{width:clamp(40px,3.4vw,52px);height:clamp(40px,3.4vw,52px);margin-bottom:18px;
+  stroke:currentColor;fill:none;stroke-width:1.2;opacity:.9}
+.pillar .n{font-family:var(--sans);font-weight:300;font-size:clamp(22px,2.6vw,38px);letter-spacing:-.03em;line-height:1;text-transform:uppercase}
+.pillar p{color:var(--mute-d);margin-top:10px;font-size:13.5px;line-height:1.55;max-width:28ch}
+.light .pillar p{color:var(--mute)}
+
+/* ---------- SLIDE — serviços ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(40px,5vw,90px);margin-top:clamp(28px,4vh,48px)}
+@media(max-width:860px){.svc-grid{grid-template-columns:1fr}}
+.svc-row{display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:baseline;
+  padding:clamp(14px,1.8vh,22px) 0;border-top:1px solid var(--line-d)}
+.light .svc-row{border-color:var(--line)}
+.svc-row .num{font-family:var(--mono);font-size:11px;color:var(--mute-d)}
+.svc-row .sname{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  font-size:clamp(18px,1.8vw,26px);letter-spacing:-.02em;line-height:1.05;display:block}
+.svc-row .scode{font-family:var(--mono);font-size:.46em;letter-spacing:.06em;text-transform:none;color:var(--mute-d);margin-left:.5em;white-space:nowrap}
+.svc-row .sdesc{display:block;color:var(--mute-d);font-size:12.5px;line-height:1.5;margin-top:7px;max-width:40ch}
+.light .svc-row .sdesc{color:var(--mute)}
+
+/* ---------- SLIDE — cases ---------- */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,26px);margin-top:clamp(28px,4vh,48px)}
+@media(max-width:860px){.cases{grid-template-columns:1fr;max-height:62vh;overflow:auto}}
+.case-card{position:relative;border-radius:14px;overflow:hidden;background:#15151a;border:1px solid var(--line-d);
+  aspect-ratio:3/4;display:block}
+.case-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.case-card:hover img{transform:scale(1.04)}
+.case-card .ov{position:absolute;inset:auto 0 0 0;z-index:2;padding:clamp(18px,1.6vw,24px);
+  background:linear-gradient(transparent,rgba(15,15,18,.92))}
+.case-card .ov h3{font-family:var(--sans);font-weight:400;text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(20px,2vw,28px);line-height:1}
+.case-card .ov .dim{color:var(--mute-d);font-size:13px;display:block;margin-top:4px}
+.case-card .ov .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.case-card .ov .tags span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mute-d);border:1px solid var(--line-d);border-radius:30px;padding:5px 11px}
+.case-card .ov p{color:#cfcfd4;font-size:12.5px;line-height:1.5;margin-top:12px;font-weight:300}
+.case-card .ov .spark{color:var(--mute-d);margin-right:6px}
+
+/* ---------- SLIDE — diferenciais / método ---------- */
+.method{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,44px);margin-top:clamp(40px,6vh,72px)}
+@media(max-width:860px){.method{grid-template-columns:1fr;gap:26px}}
+.step .st-n{font-family:var(--serif);font-style:italic;font-size:clamp(40px,5vw,76px);line-height:1;color:var(--mute-d)}
+.step h3{font-family:var(--sans);font-weight:400;text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(19px,2vw,26px);margin-top:14px}
+.step p{color:var(--mute-d);font-size:13.5px;line-height:1.6;margin-top:10px;max-width:32ch}
+.light .step p{color:var(--mute)}
+
+/* metrics row */
+.metrics{display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,90px);margin-top:clamp(40px,6vh,72px);
+  border-top:1px solid var(--line-d);padding-top:clamp(28px,4vh,44px)}
+.light .metrics{border-color:var(--line)}
+.metric .big{font-family:var(--sans);font-weight:300;font-size:clamp(38px,5vw,76px);letter-spacing:-.04em;line-height:1}
+.metric .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);margin-top:8px}
+
+/* ---------- SLIDE — full bleed marquee ---------- */
+.bleed{padding:0;flush}
+.bleed video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.04) brightness(.62)}
+.bleed .marq{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);z-index:2;overflow:hidden;white-space:nowrap;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.bleed .track{display:inline-block;animation:scroll 26s linear infinite}
+.bleed .track span{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  font-size:clamp(46px,9vw,150px);letter-spacing:-.02em;line-height:1;color:rgba(255,255,255,.96);padding:0 .35em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.bleed .track{animation:none}}
+
+/* ---------- SLIDE — contato ---------- */
+.contact h2{font-size:clamp(32px,5vw,72px);max-width:16ch;margin-bottom:clamp(34px,5vh,56px)}
+.contact .rows{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,56px);
+  border-top:1px solid var(--line-d);padding-top:clamp(28px,4vh,44px)}
+@media(max-width:860px){.contact .rows{grid-template-columns:1fr;gap:22px}}
+.contact .rows .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);margin-bottom:10px}
+.contact .rows a,.contact .rows span{font-size:clamp(15px,1.5vw,19px);display:block;line-height:1.7;color:var(--white)}
+.contact .rows a:hover{color:var(--mute-d)}
+
+/* ---------- CASE MODAL (abre dentro da apresentação) ---------- */
+.case-modal{position:fixed;inset:0;z-index:120;background:rgba(8,8,11,.6);backdrop-filter:blur(10px);
+  opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s var(--ease)}
+.case-modal.open{opacity:1;visibility:visible}
+.cm-panel{position:absolute;inset:clamp(0px,3vh,40px) clamp(0px,3vw,40px);background:var(--black);
+  border:1px solid var(--line-d);border-radius:clamp(0px,1.4vw,22px);overflow:hidden;
+  display:flex;flex-direction:column;transform:translateY(24px) scale(.99);transition:transform .5s var(--ease)}
+.case-modal.open .cm-panel{transform:none}
+.cm-close{position:absolute;top:18px;right:20px;z-index:5;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line-d);background:rgba(22,22,22,.6);backdrop-filter:blur(8px);color:#fff;cursor:pointer;
+  font-size:16px;display:flex;align-items:center;justify-content:center;transition:.3s var(--ease)}
+.cm-close:hover{background:#f2f2f2;color:#161616;border-color:#f2f2f2}
+.cm-scroll{overflow-y:auto;height:100%;scrollbar-width:thin}
+.cm-head{padding:clamp(40px,6vw,80px) clamp(28px,5vw,72px) clamp(28px,3vw,40px)}
+.cm-head .case-title{font-family:var(--sans);font-weight:400;text-transform:uppercase;
+  letter-spacing:-.04em;line-height:.92;font-size:clamp(42px,8vw,110px)}
+.cm-head .case-sub{font-family:var(--serif);font-style:italic;color:var(--mute-d);font-size:clamp(18px,2.4vw,32px);margin-top:6px}
+.cm-meta{display:flex;gap:clamp(28px,5vw,66px);flex-wrap:wrap;margin-top:clamp(28px,4vw,44px);
+  border-top:1px solid var(--line-d);padding-top:24px}
+.cm-meta .mono{display:block;margin-bottom:8px}
+.cm-meta p{font-size:14px}
+.cm-text{max-width:64ch;padding:0 clamp(28px,5vw,72px) clamp(28px,4vw,48px)}
+.cm-text .lead{font-size:clamp(17px,2vw,24px);color:#f2f2f2;line-height:1.5;margin-bottom:20px;font-weight:300}
+.cm-text p{color:var(--mute-d);margin-bottom:16px;line-height:1.72;font-size:14.5px}
+.cm-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(10px,1.4vw,18px);
+  padding:0 clamp(28px,5vw,72px) clamp(40px,6vw,80px)}
+.cm-gallery img{width:100%;border-radius:8px;border:1px solid var(--line-d);display:block}
+.cm-gallery img.full{grid-column:1/-1}
+@media(max-width:600px){.cm-gallery{grid-template-columns:1fr}}
+
+/* ---------- CHROME: progresso, contador, setas, dots ---------- */
+.brandbar{position:fixed;top:clamp(22px,3.4vh,34px);left:var(--mx);z-index:40;mix-blend-mode:difference;color:#fff}
+.counter{position:fixed;bottom:clamp(22px,3.4vh,34px);left:var(--mx);z-index:40;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#fff;mix-blend-mode:difference}
+.counter b{font-weight:400}
+.hint{position:fixed;bottom:clamp(22px,3.4vh,34px);left:50%;transform:translateX(-50%);z-index:40;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;
+  opacity:.7;transition:opacity .4s}
+.hint.hide{opacity:0}
+.progress{position:fixed;top:0;left:0;height:2px;background:#f2f2f2;z-index:50;width:0;transition:width .3s var(--ease);mix-blend-mode:difference}
+.dots{position:fixed;right:clamp(20px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:40;
+  display:flex;flex-direction:column;gap:11px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.28);cursor:pointer;transition:.3s var(--ease);mix-blend-mode:difference}
+.dots i.on{background:#fff;transform:scale(1.35)}
+.arrows{position:fixed;bottom:clamp(20px,3.4vh,34px);right:var(--mx);z-index:40;display:flex;gap:10px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(22,22,22,.4);
+  backdrop-filter:blur(8px);color:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;
+  transition:.3s var(--ease);mix-blend-mode:difference}
+.arrows button:hover{background:#f2f2f2;color:#161616;border-color:#f2f2f2;mix-blend-mode:normal}
+@media(max-width:860px){.dots{display:none}.arrows{display:none}}
+
+.langtog{position:fixed;top:clamp(20px,3.4vh,32px);right:var(--mx);z-index:40;display:inline-flex;align-items:center;gap:7px;
+  background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#fff;mix-blend-mode:difference}
+.langtog .lt{opacity:.45;transition:.25s}.langtog .lt.on{opacity:1}.langtog .lt-sep{opacity:.3}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="brandbar"><span class="lockup"><img src="img/symbol-white.png" alt="">Worth</span></div>
+<button class="langtog" id="langtog" type="button" aria-label="Idioma"><span class="lt on" data-l="pt">PT</span><span class="lt-sep">/</span><span class="lt" data-l="en">EN</span></button>
+<div class="counter"><b id="cur">01</b> / <span id="tot">10</span></div>
+<div class="hint" id="hint">↓ Scroll · ← → setas · use as teclas</div>
+<nav class="dots" id="dots" aria-hidden="true"></nav>
+<div class="arrows"><button id="prev" aria-label="Anterior">↑</button><button id="next" aria-label="Próximo">↓</button></div>
+
+<main class="deck" id="deck">
+
+  <!-- 01 — CAPA -->
+  <section class="slide cover flush" data-name="Capa">
+    <video autoplay muted loop playsinline><source src="video/hero-symbol.mp4" type="video/mp4"></video>
+    <div class="grain"></div>
+    <div class="toprow">
+      <span class="mono">Worth © Creative Studio</span>
+      <span class="mono" data-i18n>Apresentação do Estúdio — 2026</span>
+    </div>
+    <div class="flank">
+      <h1 class="disp" data-rv>Value Is <span class="serif">Designed</span></h1>
+    </div>
+    <div class="sub" data-rv style="--d:.15">
+      <p class="lead" style="margin:0 auto;text-align:center" data-i18n>Estúdio criativo de branding. Construímos marcas que valem mais.</p>
+    </div>
+  </section>
+
+  <!-- 02 — QUEM SOMOS -->
+  <section class="slide" data-name="Quem somos">
+    <div class="kicker" data-rv><span class="mono">00 — <span data-i18n>O estúdio</span></span></div>
+    <div class="two">
+      <div>
+        <p class="intro-line" data-rv style="--d:.05"><span data-i18n>A Worth é um estúdio criativo de branding.</span> <span data-i18n>Damos forma ao valor — onde a marca encontra a percepção e vira algo que as pessoas</span> <em class="serif" data-i18n>reconhecem, lembram e desejam.</em></p>
+        <p class="lead" data-rv style="--d:.12;margin-top:28px" data-i18n>Não desenhamos peças soltas. Construímos sistemas de marca completos — da estratégia à última aplicação — para que cada ponto de contato trabalhe a favor da percepção de valor.</p>
+      </div>
+      <div class="field" data-rv style="--d:.18" aria-hidden="true">
+        <span class="fi" style="left:2%;top:6%;width:34%;aspect-ratio:1;--t:7s;--d:0s"><img src="img/cases/casali-cover.jpg" alt=""></span>
+        <span class="fi" style="left:46%;top:0;width:30%;aspect-ratio:3/4;--t:8.4s;--d:.5s"><img src="img/cases/sunem-cover.jpg" alt=""></span>
+        <span class="fi" style="left:60%;top:46%;width:38%;aspect-ratio:4/3;--t:6.6s;--d:.3s"><img src="img/cases/agir-cover.jpg" alt=""></span>
+        <span class="fi" style="left:6%;top:54%;width:32%;aspect-ratio:1;--t:9s;--d:.8s"><img src="img/cases/casali-3.jpg" alt=""></span>
+        <span class="fi" style="left:34%;top:40%;width:24%;aspect-ratio:1;--t:7.6s;--d:.2s"><img src="img/dia-14.png" alt=""></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — FILOSOFIA -->
+  <section class="slide light" data-name="Filosofia">
+    <div class="kicker" data-rv><span class="mono">01 — <span data-i18n>Filosofia</span></span></div>
+    <p class="statement" data-rv style="--d:.05" data-i18n>A percepção cria valor — e a percepção pode ser <span class="serif">projetada com intenção.</span></p>
+    <div class="pillars">
+      <div class="pillar" data-rv style="--d:.1">
+        <svg class="picon" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="1.6" fill="currentColor"/></svg>
+        <div class="n" data-i18n>Intenção</div><p data-i18n>Nada é por acaso. Cada elemento carrega propósito.</p>
+      </div>
+      <div class="pillar" data-rv style="--d:.16">
+        <svg class="picon" viewBox="0 0 48 48"><rect x="8" y="12" width="22" height="22"/><circle cx="30" cy="30" r="12"/></svg>
+        <div class="n" data-i18n>Forma</div><p data-i18n>Traduzimos ideias em algo visível, coerente e desejável.</p>
+      </div>
+      <div class="pillar" data-rv style="--d:.22">
+        <svg class="picon" viewBox="0 0 48 48"><circle cx="12" cy="12" r="3"/><circle cx="36" cy="12" r="3"/><circle cx="12" cy="36" r="3"/><circle cx="36" cy="36" r="3"/><path d="M12 12h24v24H12zM12 12l24 24M36 12L12 36"/></svg>
+        <div class="n" data-i18n>Sistema</div><p data-i18n>Não desenhamos peças. Desenhamos a lógica que as gera.</p>
+      </div>
+      <div class="pillar" data-rv style="--d:.28">
+        <svg class="picon" viewBox="0 0 48 48"><path d="M24 4c2 11 9 18 20 20-11 2-18 9-20 20-2-11-9-18-20-20 11-2 18-9 20-20Z"/></svg>
+        <div class="n" data-i18n>Valor</div><p data-i18n>O resultado: marcas que valem — e que duram.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — MÉTODO -->
+  <section class="slide" data-name="Método">
+    <div class="kicker" data-rv><span class="mono">02 — <span data-i18n>Como trabalhamos</span></span></div>
+    <p class="statement" data-rv style="--d:.05" data-i18n>Um processo claro, do <span class="serif">propósito</span> à aplicação.</p>
+    <div class="method">
+      <div class="step" data-rv style="--d:.1">
+        <div class="st-n">01</div>
+        <h3 data-i18n>Imersão & Estratégia</h3>
+        <p data-i18n>Entendemos propósito, posicionamento e público. Definimos o que a marca precisa significar.</p>
+      </div>
+      <div class="step" data-rv style="--d:.18">
+        <div class="st-n">02</div>
+        <h3 data-i18n>Identidade & Sistema</h3>
+        <p data-i18n>Damos forma: símbolo, tipografia, cor e um sistema de design coerente e escalável.</p>
+      </div>
+      <div class="step" data-rv style="--d:.26">
+        <div class="st-n">03</div>
+        <h3 data-i18n>Aplicação & Entrega</h3>
+        <p data-i18n>Brandbook, peças, banco de imagens, site e conteúdo — tudo pronto para viver no mundo real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — SERVIÇOS -->
+  <section class="slide light" data-name="Serviços">
+    <div class="kicker" data-rv><span class="mono">03 — <span data-i18n>Serviços</span></span></div>
+    <h2 class="disp" data-rv style="--d:.04;font-size:clamp(26px,4vw,50px)" data-i18n>O que fazemos</h2>
+    <div class="svc-grid">
+      <div class="svc-row" data-rv style="--d:.08"><span class="num">01</span><span><span class="sname"><span data-i18n>Identidade Visual</span><em class="scode">Worth Identity™</em></span><span class="sdesc" data-i18n>Marcas que traduzem propósito, posicionamento e personalidade — com brandbook completo.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.12"><span class="num">02</span><span><span class="sname"><span data-i18n>Sistema de Design de Marca</span><em class="scode">Worth System™</em></span><span class="sdesc" data-i18n>Sistemas visuais que conectam tipografia, cor, padrões, grids e diretrizes com consistência.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.16"><span class="num">03</span><span><span class="sname"><span data-i18n>Banco de Imagens com IA</span><em class="scode">Worth Vision™</em></span><span class="sdesc" data-i18n>Bancos de imagens exclusivos com IA, alinhados à identidade — produção praticamente ilimitada.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.2"><span class="num">04</span><span><span class="sname"><span data-i18n>Key Visual</span><em class="scode">Worth Campaign™</em></span><span class="sdesc" data-i18n>Conceitos visuais para campanhas, lançamentos e eventos, com unidade em todos os materiais.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.12"><span class="num">05</span><span><span class="sname"><span data-i18n>Sites & Landing Pages</span><em class="scode">Worth Digital™</em></span><span class="sdesc" data-i18n>Experiências digitais que unem design, estratégia e performance — feitas para converter.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.16"><span class="num">06</span><span><span class="sname"><span data-i18n>Apresentações Corporativas</span><em class="scode">Worth Deck™</em></span><span class="sdesc" data-i18n>Narrativas claras, estratégicas e visualmente impactantes para comunicar melhor ideias.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.2"><span class="num">07</span><span><span class="sname"><span data-i18n>Filmes & Conteúdo com IA</span><em class="scode">Worth Motion™</em></span><span class="sdesc" data-i18n>Vídeos e animações com IA integrada à direção criativa — qualidade com agilidade.</span></span></div>
+      <div class="svc-row" data-rv style="--d:.24"><span class="num">08</span><span><span class="sname"><span data-i18n>Design de Embalagens</span><em class="scode">Worth Package™</em></span><span class="sdesc" data-i18n>Embalagens que unem estratégia, estética e presença de marca — destaque no ponto de venda.</span></span></div>
+    </div>
+  </section>
+
+  <!-- 06 — MARQUEE -->
+  <section class="slide bleed flush" data-name="Designing Value">
+    <video autoplay muted loop playsinline poster="video/hero-poster.jpg"><source src="video/casali-bg.mp4" type="video/mp4"></video>
+    <div class="marq"><div class="track"><span>Designing Value ✦</span><span>Designing Value ✦</span><span>Designing Value ✦</span><span>Designing Value ✦</span></div></div>
+  </section>
+
+  <!-- 07 — CASES -->
+  <section class="slide" data-name="Cases">
+    <div class="kicker" data-rv><span class="mono">04 — <span data-i18n>Portfólio</span></span></div>
+    <h2 class="disp" data-rv style="--d:.04;font-size:clamp(26px,4vw,50px)" data-i18n>Nossos trabalhos</h2>
+    <div class="cases">
+      <button class="case-card" type="button" data-case="casali" data-rv style="--d:.1">
+        <img src="img/cases/casali-cover.jpg" alt="Casa Li">
+        <div class="ov"><h3>Casa Li</h3><span class="dim" data-i18n>Confeitaria artesanal</span>
+          <div class="tags"><span data-i18n>Logo</span><span data-i18n>Embalagens</span><span data-i18n>Banco de Imagens</span><span data-i18n>Brandbook</span></div>
+          <p><span class="spark">✦</span><span data-i18n>O afeto de uma cozinha caseira virou marca reconhecível à primeira mordida.</span></p>
+        </div>
+      </button>
+      <button class="case-card" type="button" data-case="agir" data-rv style="--d:.16">
+        <img src="img/cases/agir-5.jpg" alt="Agir">
+        <div class="ov"><h3>Agir</h3><span class="dim" data-i18n>Energia em movimento</span>
+          <div class="tags"><span data-i18n>Logo</span><span data-i18n>Social</span><span data-i18n>Tipografia</span><span data-i18n>Merch</span></div>
+          <p><span class="spark">✦</span><span data-i18n>Identidade vibrante e elétrica, feita para mobilizar e colocar gente em ação.</span></p>
+        </div>
+      </button>
+      <button class="case-card" type="button" data-case="sunem" data-rv style="--d:.22">
+        <img src="img/cases/sunem-2.jpg" alt="Sunem">
+        <div class="ov"><h3>Sunem</h3><span class="dim">Resting Place</span>
+          <div class="tags"><span data-i18n>Logo</span><span data-i18n>Ilustração</span><span data-i18n>Papelaria</span><span data-i18n>Paleta</span></div>
+          <p><span class="spark">✦</span><span data-i18n>Marca orgânica que respira natureza, lentidão e cuidado — um convite ao descanso.</span></p>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- 08 — POR QUE WORTH -->
+  <section class="slide light" data-name="Por que Worth">
+    <div class="kicker" data-rv><span class="mono">05 — <span data-i18n>Por que a Worth</span></span></div>
+    <p class="statement" data-rv style="--d:.05" data-i18n>Marcas não acontecem. <span class="serif">São projetadas.</span></p>
+    <div class="metrics">
+      <div class="metric" data-rv style="--d:.1"><div class="big">8</div><div class="lbl" data-i18n>Frentes de serviço</div></div>
+      <div class="metric" data-rv style="--d:.16"><div class="big">IA</div><div class="lbl" data-i18n>Integrada à direção criativa</div></div>
+      <div class="metric" data-rv style="--d:.22"><div class="big serif" style="font-style:italic">PT/EN</div><div class="lbl" data-i18n>Atendimento global</div></div>
+      <div class="metric" data-rv style="--d:.28"><div class="big">360°</div><div class="lbl" data-i18n>Da estratégia à aplicação</div></div>
+    </div>
+  </section>
+
+  <!-- 09 — CONTATO -->
+  <section class="slide contact" data-name="Contato">
+    <div class="kicker" data-rv><span class="mono">06 — <span data-i18n>Vamos conversar</span></span></div>
+    <h2 class="disp" data-rv style="--d:.04" data-i18n>Conte qual é o próximo <span class="serif">desafio.</span></h2>
+    <div class="rows">
+      <div data-rv style="--d:.1"><div class="lbl">Site</div><a href="https://worthcreativestudio.com" target="_blank" rel="noopener">worthcreativestudio.com</a></div>
+      <div data-rv style="--d:.16"><div class="lbl">Social</div>
+        <a href="https://www.instagram.com/worth.creativestudio/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/william-oribes-436bb8154/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/williamoribes" target="_blank" rel="noopener">Behance</a>
+      </div>
+      <div data-rv style="--d:.22"><div class="lbl" data-i18n>Base</div><span data-i18n>Rio Grande do Sul, BR — Atendimento global</span></div>
+    </div>
+  </section>
+
+  <!-- 10 — FECHAMENTO -->
+  <section class="slide cover flush" data-name="Fechamento">
+    <video autoplay muted loop playsinline><source src="video/hero-symbol.mp4" type="video/mp4"></video>
+    <div class="grain"></div>
+    <div class="flank">
+      <h1 class="disp" data-rv data-i18n>Construímos marcas que <span class="serif">valem mais.</span></h1>
+    </div>
+    <div class="sub" data-rv style="--d:.15"><p class="mono" style="text-align:center">Worth © Creative Studio — Value Is Designed</p></div>
+  </section>
+
+</main>
+
+<!-- CASE MODAL -->
+<div class="case-modal" id="caseModal" aria-hidden="true">
+  <div class="cm-panel">
+    <button class="cm-close" id="cmClose" aria-label="Fechar">✕</button>
+    <div class="cm-scroll" id="cmScroll"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const deck=document.getElementById('deck');
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsWrap=document.getElementById('dots');
+  const cur=document.getElementById('cur'),tot=document.getElementById('tot');
+  const progress=document.getElementById('progress');
+  const hint=document.getElementById('hint');
+  let active=0;
+  tot.textContent=String(slides.length).padStart(2,'0');
+
+  // dots
+  slides.forEach((s,i)=>{const d=document.createElement('i');d.title=s.dataset.name||('Slide '+(i+1));
+    d.addEventListener('click',()=>go(i));dotsWrap.appendChild(d);});
+  const dots=[...dotsWrap.children];
+
+  function setActive(i){
+    active=i;
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+    cur.textContent=String(i+1).padStart(2,'0');
+    progress.style.width=((i)/(slides.length-1)*100)+'%';
+  }
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));deck.scrollTo({top:i*window.innerHeight,behavior:'smooth'});}
+
+  // observe which slide is centered
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){setActive(slides.indexOf(e.target));}});
+  },{root:deck,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  setActive(0);
+
+  // controls
+  document.getElementById('next').addEventListener('click',()=>go(active+1));
+  document.getElementById('prev').addEventListener('click',()=>go(active-1));
+  let lock=false;
+  window.addEventListener('keydown',e=>{
+    if(document.getElementById('caseModal').classList.contains('open'))return;
+    if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(active+1);}
+    else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(active-1);}
+    else if(e.key==='Home'){go(0);}else if(e.key==='End'){go(slides.length-1);}
+  });
+  // hide hint after first move
+  let moved=false;
+  deck.addEventListener('scroll',()=>{if(!moved){moved=true;hint.classList.add('hide');}},{passive:true});
+
+  /* ---- CASES (abrem dentro da apresentação) ---- */
+  const CASES={
+    casali:{
+      title:"Casa Li", sub_pt:"Doce como estar em casa.", sub_en:"Sweet like being home.",
+      kicker_pt:"Case · Identidade Visual", kicker_en:"Case · Visual Identity",
+      client:"Casa Li — Liandra Oribes", year:"2026",
+      deliver_pt:"Identidade · Embalagens · Banco de imagens · Brandbook",
+      deliver_en:"Identity · Packaging · Image bank · Brandbook",
+      text_pt:["A Casa Li nasceu da cozinha de Liandra Oribes — bolos, brownies e tortas feitos à mão, com o afeto de quem recebe em casa. O desafio foi transformar esse carinho artesanal em uma marca reconhecível à primeira mordida.","Criamos uma identidade calorosa e doméstica: um logotipo manuscrito que respira proximidade, uma paleta de azul sereno e creme, e um conjunto de ícones — xícaras, batedores, flores e corações — que contam a história de uma confeitaria feita com as mãos.","O sistema se estende às embalagens (caixas, potes e sacolas), à comunicação e a um banco de imagens próprio dos produtos. O resultado é uma marca que entrega mais do que o doce: entrega a sensação de estar em casa."],
+      text_en:["Casa Li was born in Liandra Oribes' kitchen — cakes, brownies and pies made by hand, with the warmth of someone welcoming you home. The challenge was to turn that artisanal care into a brand recognizable at first bite.","We created a warm, homey identity: a handwritten logotype that breathes closeness, a palette of serene blue and cream, and a set of icons — cups, whisks, flowers and hearts — telling the story of a confectionery made by hand.","The system extends to packaging (boxes, jars and bags), communication and a dedicated product image bank. The result is a brand that delivers more than the sweet: it delivers the feeling of being home."],
+      images:[["casali-3.jpg",0],["casali-1.jpg",0],["casali-pattern.jpg",1],["casali-4.jpg",0],["casali-5.jpg",0],["casali-2.jpg",0],["casali-6.jpg",1],["casali-book.jpg",1]]
+    },
+    agir:{
+      title:"Agir", sub_pt:"Mais que um nome, um chamado.", sub_en:"More than a name, a calling.",
+      kicker_pt:"Case · Identidade & Social", kicker_en:"Case · Identity & Social",
+      client:"Agir", year:"2026",
+      deliver_pt:"Identidade · Direção de Arte · Social · Merch",
+      deliver_en:"Identity · Art Direction · Social · Merch",
+      text_pt:["Agir é energia em movimento — uma marca feita para mobilizar, reunir e colocar gente em ação, com a vibração de um evento e a urgência de um manifesto.","Construímos uma identidade vibrante e expansiva: um símbolo dinâmico, uma paleta neon de verdes, azuis e magentas, e uma tipografia firme (Neutral Face + Archivo Grotesk) que sustenta mensagens de impacto.","O sistema foi pensado para viver no mundo real e nas telas — do merch da equipe (camisetas STAFF, pulseiras) aos templates de redes sociais. Uma marca que não pede licença: ela chama para a ação."],
+      text_en:["Agir is energy in motion — a brand made to mobilize, gather and put people into action, with the vibe of an event and the urgency of a manifesto.","We built a vibrant, expansive identity: a dynamic symbol, a neon palette of greens, blues and magentas, and bold typography (Neutral Face + Archivo Grotesk) carrying high-impact messaging.","The system was designed to live in the real world and on screens — from team merch (STAFF tees, wristbands) to social templates. A brand that doesn't ask permission: it calls to action."],
+      images:[["agir-2.jpg",1],["agir-3.jpg",0],["agir-4.jpg",0],["agir-5.jpg",1],["agir-6.jpg",0],["agir-7.jpg",0],["agir-8.jpg",1],["agir-9.jpg",1]]
+    },
+    sunem:{
+      title:"Sunem", sub_pt:"Resting Place — um convite ao descanso.", sub_en:"Resting Place — an invitation to rest.",
+      kicker_pt:"Case · Identidade & Ilustração", kicker_en:"Case · Identity & Illustration",
+      client:"Sunem Resting Place", year:"2026",
+      deliver_pt:"Identidade · Ilustração · Direção de Arte",
+      deliver_en:"Identity · Illustration · Art Direction",
+      text_pt:["Sunem Resting Place é um convite ao descanso — uma marca que respira natureza, lentidão e cuidado. Um lugar para chegar, respirar e recarregar.","Desenhamos uma identidade orgânica e acolhedora: ilustrações botânicas feitas à mão, uma paleta terrosa de terracota, verde-folha e areia, e uma tipografia suave que transmite serenidade.","Cada elemento foi pensado para evocar a sensação de ficar — da papelaria às embalagens. Uma marca calma, natural e atemporal, como o descanso que ela representa."],
+      text_en:["Sunem Resting Place is an invitation to rest — a brand that breathes nature, slowness and care. A place to arrive, breathe and recharge.","We designed an organic, welcoming identity: hand-drawn botanical illustrations, an earthy palette of terracotta, leaf green and sand, and a soft typography that conveys serenity.","Every element was designed to evoke the feeling of staying — from stationery to packaging. A calm, natural and timeless brand, like the rest it represents."],
+      images:[["sunem-2.jpg",0],["sunem-3.jpg",0],["sunem-4.jpg",1],["sunem-5.jpg",0],["sunem-6.jpg",0],["sunem-7.jpg",1],["sunem-8.jpg",0],["sunem-9.jpg",0],["sunem-10.jpg",1]]
+    }
+  };
+  const cm=document.getElementById('caseModal'), cmScroll=document.getElementById('cmScroll');
+  function getLangEN(){return (localStorage.getItem('worth-lang')||'pt')==='en';}
+  const L_CLIENT={pt:"Cliente",en:"Client"}, L_DELIVER={pt:"Entrega",en:"Deliverables"}, L_YEAR={pt:"Ano",en:"Year"};
+  function buildCase(key){
+    const c=CASES[key]; if(!c)return; const en=getLangEN();
+    const imgs=c.images.map(([src,full])=>`<img class="${full?'full':''}" src="img/cases/${src}" alt="${c.title}">`).join('');
+    const text=(en?c.text_en:c.text_pt).map((p,i)=>`<p class="${i===0?'lead':''}">${p}</p>`).join('');
+    cmScroll.innerHTML=`
+      <div class="cm-head">
+        <div class="kicker"><span class="mono">${en?c.kicker_en:c.kicker_pt}</span></div>
+        <h2 class="case-title">${c.title}</h2>
+        <p class="case-sub">${en?c.sub_en:c.sub_pt}</p>
+        <div class="cm-meta">
+          <div><span class="mono">${en?L_CLIENT.en:L_CLIENT.pt}</span><p>${c.client}</p></div>
+          <div><span class="mono">${en?L_DELIVER.en:L_DELIVER.pt}</span><p>${en?c.deliver_en:c.deliver_pt}</p></div>
+          <div><span class="mono">${en?L_YEAR.en:L_YEAR.pt}</span><p>${c.year}</p></div>
+        </div>
+      </div>
+      <div class="cm-text">${text}</div>
+      <div class="cm-gallery">${imgs}</div>`;
+    cmScroll.scrollTop=0;
+  }
+  function openCase(key){buildCase(key);cm.classList.add('open');cm.setAttribute('aria-hidden','false');}
+  function closeCase(){cm.classList.remove('open');cm.setAttribute('aria-hidden','true');}
+  document.querySelectorAll('[data-case]').forEach(btn=>btn.addEventListener('click',()=>openCase(btn.dataset.case)));
+  document.getElementById('cmClose').addEventListener('click',closeCase);
+  cm.addEventListener('click',e=>{if(e.target===cm)closeCase();});
+  window.addEventListener('keydown',e=>{if(e.key==='Escape'&&cm.classList.contains('open'))closeCase();});
+
+  /* ---- i18n PT/EN ---- */
+  const T={
+    "Apresentação do Estúdio — 2026":"Studio Deck — 2026",
+    "Estúdio criativo de branding. Construímos marcas que valem mais.":"A creative branding studio. We build brands worth more.",
+    "O estúdio":"The studio",
+    "A Worth é um estúdio criativo de branding.":"Worth is a creative branding studio.",
+    "Damos forma ao valor — onde a marca encontra a percepção e vira algo que as pessoas":"We give value its form — where a brand meets perception and becomes something people",
+    "reconhecem, lembram e desejam.":"recognize, remember and desire.",
+    "Não desenhamos peças soltas. Construímos sistemas de marca completos — da estratégia à última aplicação — para que cada ponto de contato trabalhe a favor da percepção de valor.":"We don't design loose pieces. We build complete brand systems — from strategy to the last application — so every touchpoint works in favor of perceived value.",
+    "Filosofia":"Philosophy",
+    "A percepção cria valor — e a percepção pode ser projetada com intenção.":"Perception creates value — and perception can be designed with intention.",
+    "Intenção":"Intention","Nada é por acaso. Cada elemento carrega propósito.":"Nothing is by chance. Every element carries purpose.",
+    "Forma":"Form","Traduzimos ideias em algo visível, coerente e desejável.":"We translate ideas into something visible, coherent and desirable.",
+    "Sistema":"System","Não desenhamos peças. Desenhamos a lógica que as gera.":"We don't design pieces. We design the logic that generates them.",
+    "Valor":"Value","O resultado: marcas que valem — e que duram.":"The result: brands that are worth it — and that last.",
+    "Como trabalhamos":"How we work",
+    "Um processo claro, do propósito à aplicação.":"A clear process, from purpose to application.",
+    "Imersão & Estratégia":"Immersion & Strategy",
+    "Entendemos propósito, posicionamento e público. Definimos o que a marca precisa significar.":"We understand purpose, positioning and audience. We define what the brand must mean.",
+    "Identidade & Sistema":"Identity & System",
+    "Damos forma: símbolo, tipografia, cor e um sistema de design coerente e escalável.":"We give it form: symbol, typography, color and a coherent, scalable design system.",
+    "Aplicação & Entrega":"Application & Delivery",
+    "Brandbook, peças, banco de imagens, site e conteúdo — tudo pronto para viver no mundo real.":"Brandbook, assets, image bank, website and content — all ready to live in the real world.",
+    "Serviços":"Services","O que fazemos":"What we do",
+    "Identidade Visual":"Visual Identity",
+    "Marcas que traduzem propósito, posicionamento e personalidade — com brandbook completo.":"Brands that translate purpose, positioning and personality — with a complete brandbook.",
+    "Sistema de Design de Marca":"Brand Design System",
+    "Sistemas visuais que conectam tipografia, cor, padrões, grids e diretrizes com consistência.":"Visual systems that connect typography, color, patterns, grids and guidelines with consistency.",
+    "Banco de Imagens com IA":"AI Image Bank",
+    "Bancos de imagens exclusivos com IA, alinhados à identidade — produção praticamente ilimitada.":"Exclusive AI image banks aligned to the identity — virtually unlimited production.",
+    "Key Visual":"Key Visual",
+    "Conceitos visuais para campanhas, lançamentos e eventos, com unidade em todos os materiais.":"Visual concepts for campaigns, launches and events, with unity across all materials.",
+    "Sites & Landing Pages":"Websites & Landing Pages",
+    "Experiências digitais que unem design, estratégia e performance — feitas para converter.":"Digital experiences uniting design, strategy and performance — built to convert.",
+    "Apresentações Corporativas":"Corporate Presentations",
+    "Narrativas claras, estratégicas e visualmente impactantes para comunicar melhor ideias.":"Clear, strategic and visually striking narratives to communicate ideas better.",
+    "Filmes & Conteúdo com IA":"AI Films & Content",
+    "Vídeos e animações com IA integrada à direção criativa — qualidade com agilidade.":"Videos and animation with AI integrated into creative direction — quality with agility.",
+    "Design de Embalagens":"Packaging Design",
+    "Embalagens que unem estratégia, estética e presença de marca — destaque no ponto de venda.":"Packaging uniting strategy, aesthetics and brand presence — standout at the point of sale.",
+    "Portfólio":"Portfolio","Nossos trabalhos":"Our work",
+    "Confeitaria artesanal":"Artisanal confectionery","Energia em movimento":"Energy in motion",
+    "Logo":"Logo","Embalagens":"Packaging","Banco de Imagens":"Image Bank","Brandbook":"Brandbook",
+    "Social":"Social","Tipografia":"Typography","Merch":"Merch","Ilustração":"Illustration","Papelaria":"Stationery","Paleta":"Palette",
+    "O afeto de uma cozinha caseira virou marca reconhecível à primeira mordida.":"The warmth of a home kitchen became a brand recognizable at first bite.",
+    "Identidade vibrante e elétrica, feita para mobilizar e colocar gente em ação.":"A vibrant, electric identity built to mobilize and put people into action.",
+    "Marca orgânica que respira natureza, lentidão e cuidado — um convite ao descanso.":"An organic brand that breathes nature, slowness and care — an invitation to rest.",
+    "Por que a Worth":"Why Worth","Marcas não acontecem. São projetadas.":"Brands don't happen. They're designed.",
+    "Frentes de serviço":"Service fronts","Integrada à direção criativa":"Integrated into creative direction",
+    "Atendimento global":"Global service","Da estratégia à aplicação":"From strategy to application",
+    "Vamos conversar":"Let's talk","Conte qual é o próximo desafio.":"Tell us your next challenge.",
+    "Base":"Based in","Rio Grande do Sul, BR — Atendimento global":"Rio Grande do Sul, BR — Global service",
+    "Construímos marcas que valem mais.":"We build brands worth more."
+  };
+  function getKey(el){return (el.__pt!==undefined?el.__pt:(el.__pt=el.textContent.trim()));}
+  function applyLang(en){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key=getKey(el); el.textContent= en?(T[key]||key):key;
+    });
+    document.documentElement.lang=en?'en':'pt-BR';
+  }
+  let lang=localStorage.getItem('worth-lang')||'pt';
+  applyLang(lang==='en');
+  const tog=document.getElementById('langtog');
+  function updUI(){tog.querySelectorAll('.lt').forEach(s=>s.classList.toggle('on',s.dataset.l===lang));}
+  updUI();
+  tog.addEventListener('click',()=>{lang=lang==='en'?'pt':'en';localStorage.setItem('worth-lang',lang);applyLang(lang==='en');updUI();});
+})();
+</script>
+</body>
+</html>
