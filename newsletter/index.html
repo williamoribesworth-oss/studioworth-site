@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2HPTV4CGE3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', { analytics_storage: 'denied' });
+  try { if (localStorage.getItem('worth-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+  gtag('config', 'G-2HPTV4CGE3');
+</script>
+<script src="/js/consent.js?v=1" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — Worth Creative Studio</title>
+<meta name="description" content="Inscreva-se na newsletter da Worth. Bastidores, projetos e o que estamos criando no estúdio.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Worth">
+<meta property="og:title" content="Newsletter — Worth Creative Studio">
+<meta property="og:description" content="Receba o que projetamos no estúdio. Inscreva-se na newsletter da Worth.">
+<meta property="og:url" content="https://worthcreativestudio.com/newsletter">
+<meta property="og:image" content="https://worthcreativestudio.com/img/og-symbol.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newsletter — Worth Creative Studio">
+<meta name="twitter:description" content="Receba o que projetamos no estúdio. Inscreva-se na newsletter da Worth.">
+<meta name="twitter:image" content="https://worthcreativestudio.com/img/og-symbol.jpg">
+
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;--white:#f2f2f2;--mute:#8A8A8F;--mute2:#9a9a9f;
+    --line:rgba(255,255,255,.14);
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --mono:'Geist Mono','SFMono-Regular',ui-monospace,monospace;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--black);color:var(--white);
+    font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;
+    letter-spacing:-.005em;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+
+  /* NAV */
+  .nav{display:flex;justify-content:space-between;align-items:center;
+    padding:22px clamp(20px,4vw,44px)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px;
+    letter-spacing:.05em;text-transform:uppercase}
+  .brand img{height:17px;width:auto}
+  .nav .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mute);border:1px solid var(--line);border-radius:2px;padding:9px 16px;transition:.3s var(--ease)}
+  .nav .back:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+
+  /* HERO */
+  .wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:clamp(30px,7vw,72px) clamp(22px,5vw,44px)}
+  .gif{width:clamp(150px,30vw,220px);height:auto;margin-bottom:6px}
+  .kick{margin-bottom:18px}
+  h1{font-family:var(--sans);font-weight:400;text-transform:uppercase;letter-spacing:.1em;
+    font-size:clamp(30px,6vw,58px);line-height:1.02;margin:4px 0 0}
+  .lead{color:var(--mute2);font-weight:300;font-size:clamp(15px,1.8vw,18px);
+    max-width:46ch;margin:22px auto 0;line-height:1.65}
+
+  /* FORM */
+  form{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:stretch;
+    margin:40px auto 0;width:100%;max-width:480px}
+  form input{flex:1;min-width:220px;font-family:var(--sans);font-size:16px;color:var(--white);
+    background:transparent;border:none;border-bottom:1px solid var(--line);border-radius:0;
+    padding:14px 2px;transition:.25s}
+  form input::placeholder{color:var(--mute)}
+  form input:focus{outline:none;border-color:var(--white)}
+  form button{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--white);color:var(--black);border:1px solid var(--white);border-radius:2px;
+    padding:0 28px;min-height:48px;cursor:pointer;transition:.3s var(--ease);white-space:nowrap;
+    display:inline-flex;align-items:center;gap:10px}
+  form button:hover{background:#d6d6da}
+  form button .arr{transition:.3s var(--ease)}
+  form button:hover .arr{transform:translateX(4px)}
+  .msg{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mute);margin-top:22px;min-height:1.2em}
+  .msg.ok{color:#9fe3b0}.msg.err{color:#e39f9f}
+  .fine{color:var(--mute);font-size:12px;font-weight:300;letter-spacing:0;text-transform:none;
+    max-width:42ch;margin:14px auto 0;line-height:1.5}
+
+  /* FOOTER */
+  footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+    padding:24px clamp(20px,4vw,44px);border-top:1px solid var(--line)}
+  footer .socials{display:flex;gap:18px}
+  footer a.sl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);transition:.25s}
+  footer a.sl:hover{color:var(--white)}
+  footer .cr{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#6E6E73}
+
+  @media (max-width:560px){
+    form button{flex:1}
+    footer{justify-content:center;text-align:center}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="/"><img src="/img/symbol-white.png" alt="Worth">Worth</a>
+  <a class="back" href="/">← Voltar ao site</a>
+</nav>
+
+<main class="wrap">
+  <img class="gif" src="/img/hero-symbol.gif" alt="Símbolo da Worth" width="220" height="220">
+  <div class="kick"><span class="mono">Newsletter · Worth Creative Studio</span></div>
+  <h1>Value Is Designed</h1>
+  <p class="lead">Bastidores do estúdio, novos projetos e ideias sobre como a percepção cria valor. Entre para a lista e receba o que estamos criando.</p>
+
+  <form id="newsForm" novalidate>
+    <input type="email" name="email" placeholder="seu@email.com" required aria-label="E-mail">
+    <button type="submit">Inscrever <span class="arr">→</span></button>
+  </form>
+  <p class="msg" id="newsMsg" role="status" aria-live="polite"></p>
+  <p class="fine">Sem spam. Você confirma a inscrição por e-mail e pode cancelar quando quiser.</p>
+</main>
+
+<footer>
+  <div class="cr">© 2026 Worth Creative Studio · Value Is Designed</div>
+  <div class="socials">
+    <a class="sl" href="https://www.instagram.com/worth.creativestudio/" target="_blank" rel="noopener">Instagram</a>
+    <a class="sl" href="https://www.linkedin.com/in/william-oribes-436bb8154/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="sl" href="https://www.behance.net/williamoribes" target="_blank" rel="noopener">Behance</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('newsForm');
+  var msg=document.getElementById('newsMsg');
+  var ML='https://assets.mailerlite.com/jsonp/2455097/forms/190626709520779256/subscribe';
+  function say(txt,cls){msg.className='msg '+(cls||'');msg.textContent=txt;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(form.email.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say('E-mail inválido.','err');return;}
+    var btn=form.querySelector('button');btn.disabled=true;
+    say('Enviando…','');
+    var fd=new FormData();fd.append('fields[email]',email);fd.append('ml-submit','1');fd.append('anticsrf','true');
+    fetch(ML,{method:'POST',body:fd,mode:'no-cors'}).then(function(){
+      form.reset();btn.disabled=false;
+      say('Quase lá — confirme no seu e-mail.','ok');
+      try{gtag('event','newsletter_signup',{method:'landing'});}catch(e){}
+    }).catch(function(){
+      btn.disabled=false;say('Algo deu errado. Tente novamente.','err');
+    });
+  });
+})();
+</script>
+</body>
+</html>
