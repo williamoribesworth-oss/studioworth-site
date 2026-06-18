@@ -6,6 +6,11 @@
   const T = {
     // nav / global
     "Orçamento":"Get a quote",
+    // newsletter
+    "Newsletter":"Newsletter",
+    "Receba o que projetamos no estúdio":"Get what we design in the studio",
+    "Inscrever":"Subscribe",
+    "seu@email.com":"you@email.com",
     // hero
     "Construímos marcas que valem mais":"We build brands worth more",
     // intro
@@ -338,4 +343,27 @@
       }catch(err){btn.textContent='Erro';btn.disabled=false;setTimeout(()=>{btn.innerHTML=original;},2400);}
     });
   }
+
+  /* ---- newsletter (MailerLite) ---- */
+  (function(){
+    const nform=document.getElementById('newsForm'); if(!nform)return;
+    const msg=document.getElementById('newsMsg');
+    const ML='https://assets.mailerlite.com/jsonp/2455097/forms/190626709520779256/subscribe';
+    const say=(pt,en,cls)=>{msg.className='news-msg '+(cls||'');msg.textContent=(lang==='en'?en:pt);};
+    nform.addEventListener('submit',function(e){
+      e.preventDefault();
+      const email=(nform.email.value||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say('E-mail inválido.','Invalid email.','err');return;}
+      const btn=nform.querySelector('button[type=submit]');const orig=btn.innerHTML;btn.disabled=true;
+      say('Enviando…','Sending…','');
+      const fd=new FormData();fd.append('fields[email]',email);fd.append('ml-submit','1');fd.append('anticsrf','true');
+      fetch(ML,{method:'POST',body:fd,mode:'no-cors'}).then(function(){
+        nform.reset();btn.disabled=false;btn.innerHTML=orig;
+        say('Quase lá — confirme no seu e-mail.','Almost there — confirm via email.','ok');
+      }).catch(function(){
+        btn.disabled=false;btn.innerHTML=orig;
+        say('Algo deu errado. Tente novamente.','Something went wrong. Try again.','err');
+      });
+    });
+  })();
 })();
