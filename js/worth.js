@@ -18,7 +18,7 @@
     "Damos forma ao valor — onde a marca encontra a percepção e vira algo que as pessoas":"We give value its form — where a brand meets perception and becomes something people",
     "reconhecem, lembram e desejam.":"recognize, remember and desire.",
     // work
-    "01 — Portfólio":"01 — Portfolio",
+    "Portfólio":"Portfolio",
     "Nossos trabalhos":"Our work",
     "Ver case":"View case",
     "Trabalhe com a gente":"Work with us",
@@ -33,7 +33,7 @@
     "Uma identidade vibrante e elétrica, feita para mobilizar, reunir e colocar gente em ação.":"A vibrant, electric identity built to mobilize, gather and put people into action.",
     "Uma marca orgânica que respira natureza, lentidão e cuidado — um convite ao descanso.":"An organic brand that breathes nature, slowness and care — an invitation to rest.",
     // philosophy
-    "02 — Filosofia":"02 — Philosophy",
+    "Filosofia":"Philosophy",
     "A percepção cria valor — e a percepção pode ser projetada com intenção.":"Perception creates value — and perception can be designed with intention.",
     "Intenção":"Intention",
     "Nada é por acaso. Cada elemento carrega propósito.":"Nothing is by chance. Every element carries purpose.",
@@ -44,7 +44,7 @@
     "Valor":"Value",
     "O resultado: marcas que valem — e que duram.":"The result: brands that are worth it — and that last.",
     // services
-    "03 — Serviços":"03 — Services",
+    "Serviços":"Services",
     "O que fazemos":"What we do",
     "Identidade Visual":"Visual Identity",
     "Criamos marcas que traduzem propósito, posicionamento e personalidade em uma identidade visual memorável — com a construção da marca e um brandbook completo para orientar sua aplicação em todos os pontos de contato.":"We create brands that translate purpose, positioning and personality into a memorable visual identity — including the brand build and a complete brandbook to guide its use across every touchpoint.",
@@ -62,7 +62,7 @@
     "Design de Embalagens":"Packaging Design",
     "Desenvolvemos embalagens que unem estratégia, estética e presença de marca — soluções que valorizam o produto, fortalecem o posicionamento e geram destaque no ponto de venda.":"We develop packaging that unites strategy, aesthetics and brand presence — solutions that elevate the product, strengthen positioning and stand out at the point of sale.",
     // feed
-    "04 — Estúdio em movimento":"04 — Studio in motion",
+    "Estúdio em movimento":"Studio in motion",
     "No dia a dia":"Day to day",
     "Bastidores, processos e últimos trabalhos. Um fluxo constante, sem ordem fixa — como a criação acontece.":"Behind the scenes, process and latest work. A constant flow, no fixed order — the way creation happens.",
     "Nota do estúdio":"Studio note","Em construção":"In progress",
@@ -76,13 +76,12 @@
     "Estudo de movimento":"Motion study","No estúdio":"In the studio","Prancheta":"Drawing board",
     "Em movimento":"In motion","Construção":"Build","Composição":"Composition","Estudo":"Study","Detalhe":"Detail",
     // contact
-    "05 — Vamos conversar":"05 — Let's talk",
+    "Vamos conversar":"Let's talk",
     "Conte qual é o próximo desafio":"Tell us your next challenge",
     "Nome":"Name","Empresa":"Company","E-mail":"Email","Telefone":"Phone",
     "Interesse":"Interest","Sobre o projeto":"About the project",
     "Design de Marca":"Brand Design",
     "Enviar pedido":"Send request",
-    "Respondemos em até 2 dias úteis.":"We reply within 2 business days.",
     "Obrigado!":"Thank you!","Vamos entrar em contato.":"We'll be in touch.",
     "Recebemos sua mensagem e respondemos em até 2 dias úteis.":"We got your message and will reply within 2 business days.",
     "Marcas não acontecem. São projetadas.":"Brands don't happen. They're designed.",
