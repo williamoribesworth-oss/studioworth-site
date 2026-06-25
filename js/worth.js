@@ -324,7 +324,9 @@
   if(fg){const items=[...fg.children];for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));fg.appendChild(items[j]);items.splice(j,1);}items.forEach(it=>fg.appendChild(it));}
 
   /* ---- chips + form (Web3Forms) ---- */
-  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    const on=c.classList.toggle('on'); c.setAttribute('aria-pressed', on?'true':'false');
+  }));
   const form=document.querySelector('form[data-web3]');
   if(form){
     const hidden=form.querySelector('input[name="Interesse"]');
